@@ -1,0 +1,4 @@
+queen
+queens
+quicker
+quite

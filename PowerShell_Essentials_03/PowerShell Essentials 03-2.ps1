@@ -1,0 +1,2 @@
+﻿$env:USERPROFILE
+$env:USERPROFILE.GetType()

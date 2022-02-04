@@ -1,0 +1,1 @@
+﻿Update-Help -Module (Get-Command New-Item).ModuleName -Verbose

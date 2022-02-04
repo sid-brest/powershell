@@ -1,0 +1,97 @@
+PowerShell
+From Wikipedia, the free encyclopedia
+PowerShell or Microsoft PowerShell (formerly Windows PowerShell) is a task automation and configuration management program from Microsoft, consisting of a command-line shell and the associated scripting language. Initially a Windows component only, known as Windows PowerShell, it was made open-source and cross-platform on 18 August 2016 with the introduction of PowerShell Core.[5] The former is built on the .NET Framework, the latter on .NET Core. The name Windows PowerShell is still present on the latest versions of Windows 11 and 10, but the latest versions of PowerShell is called PowerShell or Microsoft PowerShell.
+
+In PowerShell, administrative tasks are generally performed by cmdlets (pronounced command-lets), which are specialized .NET classes implementing a particular operation. These work by accessing data in different data stores, like the file system or registry, which are made available to PowerShell via providers. Third-party developers can add cmdlets and providers to PowerShell.[6][7] Cmdlets may be used by scripts, which may in turn be packaged into modules.
+
+PowerShell provides access to COM and WMI, enabling administrators to perform administrative tasks on both local and remote Windows systems as well as WS-Management and CIM enabling management of remote Linux systems and network devices. PowerShell also provides a hosting API with which the PowerShell runtime can be embedded inside other applications. These applications can then use PowerShell functionality to implement certain operations, including those exposed via the graphical interface. This capability has been used by Microsoft Exchange Server 2007 to expose its management functionality as PowerShell cmdlets and providers and implement the graphical management tools as PowerShell hosts which invoke the necessary cmdlets.[6][8] Other Microsoft applications including Microsoft SQL Server 2008 also expose their management interface via PowerShell cmdlets.[9]
+
+PowerShell includes its own extensive, console-based help (similar to man pages in Unix shells) accessible via the Get-Help cmdlet. Updated local help contents can be retrieved from the Internet via the Update-Help cmdlet. Alternatively, help from the web can be acquired on a case-by-case basis via the -online switch to Get-Help.
+
+Contents
+1	Background
+1.1	Background
+1.2	Kermit
+1.3	Monad
+1.4	PowerShell
+2	Design
+2.1	Grammar
+2.2	Named Commands
+2.3	Extended Type System
+2.4	Cmdlets
+2.5	Pipeline
+2.6	Scripting
+2.7	Hosting
+3	Desired State Configuration
+4	Versions
+4.1	Windows PowerShell 1.0
+4.2	Windows PowerShell 2.0
+4.3	Windows PowerShell 3.0
+4.4	Windows PowerShell 4.0
+4.5	Windows PowerShell 5.0
+4.6	Windows PowerShell 5.1
+4.7	PowerShell Core 6
+4.8	PowerShell 7
+4.9	PowerShell 7.2
+5	Comparison of cmdlets with similar commands
+6	Filename extensions
+7	Application support
+8	Alternative implementation
+9	See also
+10	References
+11	Further reading
+12	External links
+Every version of Microsoft Windows for personal computers has included a command line interpreter (CLI) for managing the operating system. Its predecessor, MS-DOS, relied exclusively on a CLI. These are COMMAND.COM in MS-DOS and Windows 9x, and cmd.exe in the Windows NT family of operating systems. Both support a few basic internal commands. For other purposes, a separate console application must be written. They also include a basic scripting language (batch files), which can be used to automate various tasks. However, they cannot be used to automate all facets of graphical user interface (GUI) functionality, in part because command-line equivalents of operations are limited, and the scripting language is elementary. In Windows Server 2003, the situation was improved, but scripting support was still unsatisfactory.[10]
+
+Microsoft attempted to address some of these shortcomings by introducing the Windows Script Host in 1998 with Windows 98, and its command-line based host, cscript.exe. It integrates with the Active Script engine and allows scripts to be written in compatible languages, such as JScript and VBScript, leveraging the APIs exposed by applications via the component object model (COM). However, it has its own deficiencies: its documentation is not very accessible, and it quickly gained a reputation as a system vulnerability vector after several high-profile computer viruses exploited weaknesses in its security provisions. Different versions of Windows provided various special-purpose command-line interpreters (such as netsh and WMIC) with their own command sets but they were not interoperable.
+
+Kermit
+By the late 1990s, Intel had come to Microsoft asking for help in making Windows, which ran on Intel CPUs, a more appropriate platform to support the development of future Intel CPUs. At the time, Intel CPU development was accomplished on Sun Microsystems computers which ran Solaris (a Unix variant) on RISC-architecture CPUs. The ability to run Intel's many KornShell automation scripts on Windows was identified as a key capability. Internally, Microsoft began an effort to create a Windows port of Korn Shell, which was code-named Kermit.[11] Intel ultimately pivoted to a Linux-based development platform that could run on Intel CPUs, rendering the Kermit project redundant. However, with a fully funded team, Microsoft program manager Jeffrey Snover realized there was an opportunity to create a more general-purpose solution to Microsoft's problem of administrative automation.
+
+
+Monad
+By 2002, Microsoft had started to develop a new approach to command-line management, including a CLI called Monad (also known as Microsoft Shell or MSH). The ideas behind it were published in August 2002 in a white paper called the "Monad Manifesto" by its chief architect, Jeffrey Snover.[12] In a 2017 interview, Snover explains the genesis of PowerShell, saying that he had been trying to make Unix tools available on Windows, which didn't work due to "core architectural difference[s] between Windows and Linux". Specifically, he noted that Linux considers everything an ASCII text file, whereas Windows considers everything an "API that returns structured data". They were fundamentally incompatible, which led him to take a different approach.[13]
+
+Monad was to be a new extensible CLI with a fresh design capable of automating a range of core administrative tasks. Microsoft first demonstrated Monad publicly at the Professional Development Conference in Los Angeles in October 2003. A few months later, they opened up private beta, which eventually led to a public beta. Microsoft published the first Monad public beta release on 17 June 2005 and the Beta 2 on 11 September 2005, and Beta 3 on 10 January 2006.
+
+PowerShell
+On 25 April 2006, not long after the initial Monad announcement, Microsoft announced that Monad had been renamed Windows PowerShell, positioning it as a significant part of its management technology offerings.[14] Release Candidate (RC) 1 of PowerShell was released at the same time. A significant aspect of both the name change and the RC was that this was now a component of Windows, rather than a mere add-on.
+
+Release Candidate 2 of PowerShell version 1 was released on 26 September 2006, with final release to the web on 14 November 2006. PowerShell for earlier versions of Windows was released on 30 January 2007.[15] PowerShell v2.0 development began before PowerShell v1.0 shipped. During the development, Microsoft shipped three community technology previews (CTP). Microsoft made these releases available to the public. The last CTP release of Windows PowerShell v2.0 was made available in December 2008.
+
+
+PowerShell for Linux 6.0 Alpha 9 on Ubuntu 14.04 x64
+PowerShell v2.0 was completed and released to manufacturing in August 2009, as an integral part of Windows 7 and Windows Server 2008 R2. Versions of PowerShell for Windows XP, Windows Server 2003, Windows Vista and Windows Server 2008 were released in October 2009 and are available for download for both 32-bit and 64-bit platforms.[16] In an October 2009 issue of TechNet Magazine, Microsoft called proficiency with PowerShell "the single most important skill a Windows administrator will need in the coming years".[17]
+
+Windows 10 shipped a testing framework for PowerShell.[18]
+
+On 18 August 2016, Microsoft announced[19] that they had made PowerShell open-source and cross-platform with support for Windows, macOS, CentOS and Ubuntu.[5] The source code was published on GitHub.[20] The move to open source created a second incarnation of PowerShell called "PowerShell Core", which runs on .NET Core. It is distinct from "Windows PowerShell", which runs on the full .NET Framework.[21] Starting with version 5.1, PowerShell Core is bundled with Windows Server 2016 Nano Server.[22][23]
+
+Design
+A key design tactic for PowerShell was to leverage the large number of APIs that already existed in Windows, Windows Management Instrumentation, .NET Framework, and other software. PowerShell cmdlets "wrap around" existing functionality. The intent with this tactic is to provide an administrator-friendly, more-consistent interface between administrators and a wide range of underlying functionality. With PowerShell, an administrator doesn't need to know .NET, WMI, or low-level API coding, and can instead focus on using the cmdlets exposed by PowerShell. In this regard, PowerShell creates little new functionality, instead focusing on making existing functionality more accessible to a particular audience.[24]
+
+Grammar
+PowerShell's developers based the core grammar of the tool on that of the POSIX 1003.2 KornShell.[25]
+
+However, PowerShell's language was also influenced by PHP, Perl, and many other existing languages.[26]
+
+Named Commands
+Windows PowerShell can execute four kinds of named commands:[27]
+
+cmdlets (.NET Framework programs designed to interact with PowerShell)
+PowerShell scripts (files suffixed by .ps1)
+PowerShell functions
+Standalone executable programs
+If a command is a standalone executable program, PowerShell launches it in a separate process; if it is a cmdlet, it executes in the PowerShell process. PowerShell provides an interactive command-line interface, where the commands can be entered and their output displayed. The user interface offers customizable tab completion. PowerShell enables the creation of aliases for cmdlets, which PowerShell textually translates into invocations of the original commands. PowerShell supports both named and positional parameters for commands. In executing a cmdlet, the job of binding the argument value to the parameter is done by PowerShell itself, but for external executables, arguments are parsed by the external executable independently of PowerShell interpretation.[citation needed]
+
+Extended Type System
+The PowerShell Extended Type System (ETS) is based on the .NET type system, but with extended semantics (for example, propertySets and third-party extensibility). For example, it enables the creation of different views of objects by exposing only a subset of the data fields, properties, and methods, as well as specifying custom formatting and sorting behavior. These views are mapped to the original object using XML-based configuration files.[28]
+
+Cmdlets
+Cmdlets are specialized commands in the PowerShell environment that implement specific functions. These are the native commands in the PowerShell stack. Cmdlets follow a Verb-Noun naming pattern, such as Get-ChildItem, which makes it self-documenting code.[29] Cmdlets output their results as objects and can also receive objects as input, making them suitable for use as recipients in a pipeline. If a cmdlet outputs multiple objects, each object in the collection is passed down through the entire pipeline before the next object is processed.[29]
+
+Cmdlets are specialized .NET classes, which the PowerShell runtime instantiates and invokes at execution time. Cmdlets derive either from Cmdlet or from PSCmdlet, the latter being used when the cmdlet needs to interact with the PowerShell runtime.[29] These base classes specify certain methods - BeginProcessing(), ProcessRecord() and EndProcessing() - which the cmdlet's implementation overrides to provide the functionality. Whenever a cmdlet runs, PowerShell invokes these methods in sequence, with ProcessRecord() being called if it receives pipeline input.[30] If a collection of objects is piped, the method is invoked for each object in the collection. The class implementing the cmdlet must have one .NET attribute - CmdletAttribute - which specifies the verb and the noun that make up the name of the cmdlet. Common verbs are provided as an enum.[31][32]
+
+If a cmdlet receives either pipeline input or command-line parameter input, there must be a corresponding property in the class, with a mutator implementation. PowerShell invokes the mutator with the parameter value or pipeline input, which is saved by the mutator implementation in class variables. These values are then referred to by the methods which implement the functionality. Properties that map to command-line parameters are marked by ParameterAttribute[33] and are set before the call to BeginProcessing(). Those which map to pipeline input are also flanked by ParameterAttribute, but with the ValueFromPipeline attribute parameter set.[34]
+
+The implementation of these cmdlet classes can refer to any .NET API and may be in any .NET language. In addition, PowerShell makes certain APIs available, such as WriteObject(), which is used to access PowerShell-specific functionality, such as writing resultant objects to the pipeline. Cmdlets can use .NET data access APIs directly or use the PowerShell infrastructure of PowerShell Providers, which make data stores addressable using unique paths. Data stores are exposed using drive letters, and hierarchies within them, addressed as directories. Windows PowerShell ships with providers for the file system, registry, the certificate store, as well as the namespaces for command aliases, variables, and functions.[35] Windows PowerShell also includes various cmdlets for managing various Windows systems, including the file system, or using Windows Management Instrumentation to control Windows components. Other applications can register cmdlets with PowerShell, thus allowing it to manage them, and, if they enclose any datastore (such as a database), they can add specific providers as well.[citation needed]

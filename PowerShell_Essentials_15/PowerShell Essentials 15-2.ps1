@@ -3,11 +3,11 @@
 function Get-ValueFromPipe {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory=$true,ValueFromPipeline=$true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [string]$UserInput
     )
     process {
 
-        $UserInput | % { Write-host "Value from pipe: " $_ }
+        $UserInput | ForEach-Object { Write-host "Value from pipe: " $_ }
     }
 }

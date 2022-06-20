@@ -1,4 +1,2 @@
 # powershell
-
-EPAM ELearn: Scripting: PowerShell Essentials
-by Struneuski Dzmitry
+PowerShell Essentials by Struneuski Dzmitry

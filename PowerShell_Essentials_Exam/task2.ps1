@@ -31,4 +31,4 @@ $NoDuplicatesWithEmail = foreach ($Item in $NoDuplicates) {
 }
 # Сonnect non-duplicates & non-duplicates & sort by id & export to csv
 # $DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id}| Export-Csv -Path $NewFilePath
-$DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id} | ConvertTo-Csv -NoTypeInformation -Delimiter ';' | Out-File -FilePath $NewFilePath
+$DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id} | ConvertTo-Csv -NoTypeInformation -Delimiter ';'| ForEach-Object {$_.Replace('"','')} | Out-File -FilePath $NewFilePath

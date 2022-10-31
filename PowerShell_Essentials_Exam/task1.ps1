@@ -22,10 +22,12 @@ function CompareIp {
     # Convert prefix xx to x.x.x.x subnet mask format
         if($network_mask -as [int]) {
             [ipaddress]$network_mask_int = 0
-    # Use -shr (shift-right) & -shl (shift-left) to convert to binary format
-            $network_mask_int.address = ([UInt32]::MaxValue) -shl (32 - $network_mask) -shr (32 - $network_mask)
+            $mask = ([Math]::Pow(2, $network_mask) - 1) * [Math]::Pow(2, (32 - $network_mask))
+            $bytes = [BitConverter]::GetBytes([UInt32] $mask)
+            $network_mask_int = (($bytes.Count - 1)..0 | ForEach-Object { [String] $bytes[$_] }) -join "."
             $network_mask = $network_mask_int.IPAddressToString
         }
+
         $network_mask_match = '0|128|192|224|240|248|252|254|255'
         if([string]$network_mask -match ` (
             ('^((({0})\.0\.0\.0)|' -f $network_mask_match) + 

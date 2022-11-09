@@ -1,3 +1,5 @@
+if (!$args[0]) { Write-Host "No path to file provided. Type path as argument, please!" }
+else {
 $FilePath = $args[0]
 # Create path to accounts_new.csv 
 $NewFilePath = $FilePath.replace('.csv', '_new.csv')
@@ -32,3 +34,4 @@ $NoDuplicatesWithEmail = foreach ($Item in $NoDuplicates) {
 # Сonnect non-duplicates & non-duplicates & sort by id & export to csv
 $DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id}| Export-Csv -Path $NewFilePath
 # $DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id} | ConvertTo-Csv -NoTypeInformation -Delimiter ';'| ForEach-Object {$_.Replace('"','')} | Out-File -FilePath $NewFilePath
+}

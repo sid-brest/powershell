@@ -1,6 +1,6 @@
 $FilePath = $args[0]
 # Create path to accounts_new.csv 
-$NewFilePath = $FilePath.replace('accounts.csv', 'accounts_new.csv')
+$NewFilePath = $FilePath.replace('.csv', '_new.csv')
 $ImportCsvData = Import-Csv -Path $FilePath
 $NewCsvData = foreach ($Item in $ImportCsvData) {
     # Uppercase first letters in name  
@@ -30,5 +30,5 @@ $NoDuplicatesWithEmail = foreach ($Item in $NoDuplicates) {
     $Item
 }
 # Сonnect non-duplicates & non-duplicates & sort by id & export to csv
-# $DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id}| Export-Csv -Path $NewFilePath
-$DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id} | ConvertTo-Csv -NoTypeInformation -Delimiter ';'| ForEach-Object {$_.Replace('"','')} | Out-File -FilePath $NewFilePath
+$DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id}| Export-Csv -Path $NewFilePath
+# $DuplicatesWithEmail + $NoDuplicatesWithEmail | Sort-Object {[int]$_.id} | ConvertTo-Csv -NoTypeInformation -Delimiter ';'| ForEach-Object {$_.Replace('"','')} | Out-File -FilePath $NewFilePath
